@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Windows Video Stream</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .controls {
+        display: flex;
+        gap: 8px;
+        margin: 10px 0;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 10px;
+      }
+      video {
+        width: 100%;
+        background: #000;
+        border-radius: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Windows Video Stream</h1>
+
+      <!-- Tek izleyici -->
+      <div class="controls">
+        <button id="startButton">Tek İzleyici Başlat</button>
+        <span id="status">Durum: Hazır</span>
+      </div>
+      <video id="videoElement" autoplay playsinline muted></video>
+
+      <hr />
+
+      <!-- Multi-user test -->
+      <div class="controls">
+        <label>İzleyici sayısı:</label>
+        <input id="nInput" type="number" min="1" max="12" value="3" />
+        <button id="multiBtn">N İzleyici Başlat</button>
+      </div>
+      <div id="grid" class="grid"></div>
+    </div>
+
+    <script src="/mediasoup-client.min.js"></script>
+    <script src="/viewer.js"></script>
+  </body>
+</html>
